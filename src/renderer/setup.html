@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>Leitão Music — configurar Spotify</title>
+  <style>
+    body { margin: 0; padding: 26px 30px; background: #121214; color: #eee; font: 14px/1.5 "Inter", "Segoe UI", "Ubuntu", system-ui, sans-serif; }
+    h1 { font-size: 19px; margin: 0 0 4px; }
+    p.sub { margin: 0 0 18px; color: #999; }
+    ol { padding-left: 20px; margin: 0 0 20px; }
+    li { margin-bottom: 8px; }
+    a { color: #1ed760; }
+    code { display: inline-flex; gap: 8px; align-items: center; background: #1e1e22; padding: 2px 8px; border-radius: 6px; font-size: 12.5px; }
+    code button { border: 0; background: #333; color: #ddd; border-radius: 4px; font-size: 11px; padding: 1px 6px; cursor: pointer; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input { width: 100%; box-sizing: border-box; padding: 10px 12px; border-radius: 8px; border: 1px solid #333; background: #1a1a1d; color: #fff; font: 14px ui-monospace, monospace; }
+    input:focus { outline: 2px solid #1ed760; border-color: transparent; }
+    .actions { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; }
+    .err { color: #ff6b6b; font-size: 12.5px; min-height: 1em; }
+    button.save { border: 0; border-radius: 999px; padding: 10px 22px; background: #1ed760; color: #000; font-weight: 700; cursor: pointer; }
+    small { color: #888; }
+  </style>
+</head>
+<body>
+  <h1>Conectar ao Spotify</h1>
+  <p class="sub">Uma vez só. O app usa seu próprio Client ID (gratuito).</p>
+  <ol>
+    <li>Abra o <a href="https://developer.spotify.com/dashboard" target="_blank">Spotify Developer Dashboard</a> e clique em <b>Create app</b>.</li>
+    <li>Em <b>Redirect URIs</b>, adicione:<br /><code><span id="redirect"></span><button id="copy">copiar</button></code></li>
+    <li>Marque <b>Web API</b>, salve e copie o <b>Client ID</b>.</li>
+  </ol>
+  <label for="cid">Client ID</label>
+  <input id="cid" placeholder="ex: 1a2b3c4d5e6f..." maxlength="32" spellcheck="false" autofocus />
+  <div class="actions">
+    <span class="err" id="err"></span>
+    <button class="save" id="save">Salvar e conectar</button>
+  </div>
+  <p><small>Desde fev/2026 o Spotify exige conta <b>Premium</b> pra usar apps em modo de desenvolvimento (até 5 usuários por Client ID).</small></p>
+  <script src="setup.js"></script>
+</body>
+</html>

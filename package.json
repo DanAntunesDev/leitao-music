@@ -1,0 +1,117 @@
+{
+  "name": "leitao-music",
+  "productName": "Leitão Music",
+  "version": "1.0.3",
+  "description": "Overlay de música estilo console para o Spotify",
+  "author": {
+    "name": "Daniel Antunes"
+  },
+  "homepage": "https://github.com/DanAntunesDev/leitao-music",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/build.mjs && electron .",
+    "typecheck": "tsc --noEmit",
+    "dist:linux": "node scripts/build.mjs && electron-builder --linux --publish never",
+    "dist:win": "node scripts/build.mjs && electron-builder --win --publish never",
+    "dist:all": "node scripts/build.mjs && electron-builder --linux --win --publish never"
+  },
+  "build": {
+    "appId": "dev.whoami.leitaomusic",
+    "productName": "Leitão Music",
+    "executableName": "leitao-music",
+    "copyright": "© 2026 Daniel Antunes",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**",
+      "assets/**",
+      "package.json",
+      "!dist/**/*.map"
+    ],
+    "artifactName": "LeitaoMusic-${version}-${arch}.${ext}",
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons",
+      "category": "Audio",
+      "synopsis": "Overlay de música estilo console para o Spotify",
+      "maintainer": "Daniel Antunes",
+      "desktop": {
+        "Name": "Leitão Music",
+        "GenericName": "Player de música",
+        "Comment": "Overlay de música estilo console para o Spotify",
+        "Keywords": "spotify;music;musica;player;overlay;leitao;",
+        "StartupWMClass": "leitao-music"
+      },
+      "executableName": "leitao-music"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Leitão Music",
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "artifactName": "LeitaoMusic-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "LeitaoMusic-Portable-${version}.${ext}"
+    },
+    "asarUnpack": [
+      "assets/**"
+    ],
+    "afterPack": "scripts/after-pack.cjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "esbuild": "^0.24.0",
+    "pe-library": "^1.0.1",
+    "resedit": "^2.0.3",
+    "typescript": "^5.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DanAntunesDev/leitao-music.git"
+  },
+  "dependencies": {
+    "x11": "^2.3.0"
+  }
+}

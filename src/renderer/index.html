@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https://*.scdn.co https://*.spotifycdn.com https://mosaic.scdn.co data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="root" class="side-left mode-browse">
+    <!-- fundo: o que está atrás vira matriz de pontos -->
+    <div id="bg">
+      <div class="bg-veil"></div>
+      <div class="bg-soft"></div>
+      <div class="bg-dots"></div>
+      <div class="bg-tint"></div>
+      <div class="bg-vignette"></div>
+    </div>
+
+    <div id="tabs"></div>
+    <div id="ctx"></div>
+
+    <div id="deck"></div>
+    <div id="labels"></div>
+
+    <div id="peek"><div class="cap">Tocando agora</div><div class="t"></div><div class="s"></div></div>
+
+    <div id="album-head"><div class="nw"><span class="name"></span><i class="line"></i></div></div>
+    <div id="tracks"><div id="tracks-inner"></div></div>
+
+    <div id="scroll"><i></i></div>
+
+    <div id="np">
+      <span class="eq"><i></i><i></i><i></i></span>
+      <span class="np-text"></span>
+    </div>
+
+    <div id="hints">
+      <div class="hint"><span class="h-select">Abrir</span><i class="pad pad-x"></i></div>
+      <div class="hint"><span class="h-cancel">Fechar</span><i class="pad pad-o"></i></div>
+    </div>
+
+    <div id="toast"></div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
