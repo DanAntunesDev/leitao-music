@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/DanAntunesDev/leitao-music",
   "main": "dist/main.js",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
     "build": "node scripts/build.mjs",
     "start": "node scripts/build.mjs && electron .",
