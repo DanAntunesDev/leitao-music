@@ -1,4 +1,4 @@
-# Leitão Music 🐷🎵
+# Leitão Music
 
 Overlay de música estilo console (PS5/PSP) para **Linux e Windows**, integrado ao Spotify.
 
